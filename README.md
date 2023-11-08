@@ -1,3 +1,44 @@
+# opengl_bazel
+
+run `bazel build //src:main`: link failed..., unresolved external symbol.
+
+```
+opengl_bazel
+    src
+        main.cpp
+        BUILD
+    third
+        include
+           GL
+           GLFW
+           ...
+        lib
+            glew32.lib
+            glfw3.lib
+            ...
+        BUILD
+WORKSPACE
+```
+
+src/BUILD:
+
+```python
+load("@rules_cc//cc:defs.bzl", "cc_binary")
+
+cc_binary(
+    name = "main",
+    srcs = ["main.cpp"],
+    copts = ["-I third/include"],
+    linkopts = ["-DEFAULTLIB:opengl32.lib"],
+    deps = [
+        "//third:thirdlib",
+    ],
+)
+```
+
+third/BUILD:
+
+```python
 load("@rules_cc//cc:defs.bzl", "cc_import", "cc_library")
 
 cc_import(
@@ -39,3 +80,4 @@ cc_library(
         ":soil2",
     ],
 )
+```

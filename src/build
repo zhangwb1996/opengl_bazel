@@ -4,10 +4,7 @@ cc_binary(
     name = "main",
     srcs = ["main.cpp"],
     copts = ["-I third/include"],
-    linkopts = [
-        "-DEFAULTLIB:opengl32.lib",
-    ],
-    # copts = ["-std=c++11"],
+    linkopts = ["-DEFAULTLIB:opengl32.lib"],
     deps = [
         "//third:thirdlib",
     ],
