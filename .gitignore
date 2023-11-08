@@ -1,0 +1,6 @@
+/.vscode
+/bazel-bin/src
+/bazel-opengl_bazel
+/bazel-out
+/bazel-testlogs
+/build

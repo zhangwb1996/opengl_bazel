@@ -1,0 +1,14 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary")
+
+cc_binary(
+    name = "main",
+    srcs = ["main.cpp"],
+    copts = ["-I third/include"],
+    linkopts = [
+        "-DEFAULTLIB:opengl32.lib",
+    ],
+    # copts = ["-std=c++11"],
+    deps = [
+        "//third:thirdlib",
+    ],
+)
