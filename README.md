@@ -1,6 +1,6 @@
 # opengl_bazel
 
-run `bazel build //src:main`: link failed..., unresolved external symbol.
+on windows, run `bazel build //src:main`: link failed..., unresolved external symbol.
 
 ```
 opengl_bazel
