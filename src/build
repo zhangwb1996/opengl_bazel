@@ -4,7 +4,15 @@ cc_binary(
     name = "main",
     srcs = ["main.cpp"],
     copts = ["-I third/include"],
-    linkopts = ["-DEFAULTLIB:opengl32.lib"],
+    # data = ["glew32.dll"],
+    linkopts = [
+        "-DEFAULTLIB:opengl32.lib",
+        "-DEFAULTLIB:user32.lib",
+        "-DEFAULTLIB:gdi32.lib",
+        "-DEFAULTLIB:shell32.lib",
+        # "-DEFAULTLIB:vcruntime.lib",
+        # "-DEFAULTLIB:msvcrt.lib",
+    ],
     deps = [
         "//third:thirdlib",
     ],
